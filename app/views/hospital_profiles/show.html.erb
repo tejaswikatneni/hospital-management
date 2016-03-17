@@ -1,0 +1,13 @@
+<p>
+  <strong>Name:</strong>
+  <%= @hospital_profile.name %>
+</p>
+<p>
+  <strong>About:</strong>
+  <%= @hospital_profile.about %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @hospital_profile.location %>
+</p>
+<%= link_to 'Edit', edit_hospital_profile_path(@hospital_profile) %>

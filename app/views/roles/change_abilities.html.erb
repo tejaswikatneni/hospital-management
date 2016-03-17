@@ -1,0 +1,32 @@
+<div class="col-md-12 no-gutter">
+	<div class="change-abilities">
+		<%= form_tag(update_role_abilities_path(@role), method: :post) do %>
+		<h2 class="header-title">Change Abilities in <%= @role.name.titleize %><span><%= submit_tag 'Update Abilities', class: 'btn btn-primary pull-right' %></span></h2>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Model</th>
+						<th>Action</th>
+						<th>Ability</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @abilities.each do |ability| %>
+						<tr>
+							<td><%= ability.subject_class %></td>
+							<td><%= ability.action %></td>
+							<td><%= ability.name %></td>
+							<td><%= check_box_tag 'ability[]', ability.id,  @role.is_permission_exist?(ability.id) %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-12 no-gutter">
+			<%= submit_tag 'Update Abilities', class: 'btn btn-primary pull-right' %>
+		</div>
+		<% end %>
+	</div>
+</div>

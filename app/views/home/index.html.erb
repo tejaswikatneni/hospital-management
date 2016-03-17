@@ -1,0 +1,10 @@
+<% if HospitalProfile.count == 0 %>
+	<div class="container">
+		<h2></h2>
+		<div class="registration text-center">
+			Please click <%= link_to 'Here', new_hospital_profile_path %> to register the hospital details
+		</div>
+	</div>
+<% else %>
+	Welcome to Hospital
+<% end %>

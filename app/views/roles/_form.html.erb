@@ -1,0 +1,11 @@
+<%= form_for(@role) do |f| %>
+	<% if @role.errors.full_messages.any? %>
+		<% @role.errors.full_messages.each do |message| %>
+			<p id="notice"><%= message %></p>
+		<% end %>
+	<% end %>
+	<%= f.text_field :name, class: 'form-control', :placeholder => 'Enter Role' %>
+	<div class='actions extra-margin-top pull-right'>
+		<%= f.submit 'Submit', class: 'btn btn-info' %>
+	</div>
+<% end %>

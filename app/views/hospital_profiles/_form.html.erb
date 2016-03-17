@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<%= form_for(@hospital_profile) do |f| %>
+			<% if @hospital_profile.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@hospital_profile.errors.count, "error") %> prohibited this hospital_profile from being saved:</h2>
+					<ul>
+					<% @hospital_profile.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<div class="field">
+				<%= f.label :name %><br>
+				<%= f.text_field :name, class: 'form-control' %>
+			</div>
+			<div class="field">
+				<%= f.label :about %><br>
+				<%= f.text_field :about, class: 'form-control' %>
+			</div>
+			<div class="field">
+				<%= f.label :location %><br>
+				<%= f.text_field :location, class: 'form-control' %>
+			</div>
+			<div class="actions text-center">
+				<%= f.submit 'Create Hospital', class: 'btn btn-success' %>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-md-3"></div>
+</div>

@@ -1,0 +1,7 @@
+<%= form_for(@patient, url: update_patient_path(@patient)) do |f| %>
+	<%= f.text_field :weight, placeholder: 'Enter Weight' %>
+	<%= f.text_field :temperature, placeholder: 'Enter Temperature' %>
+	<%= f.submit 'Update Patient', class: 'btn btn-success' %>
+<% end %>
+<p><strong>Weight: </strong><%= @patient.weight.present? ? @patient.weight : 'Not Mentioned' %></p>
+<p><strong>Temperature: </strong><%= @patient.temperature.present? ? @patient.temperature : 'Not Mentioned' %></p>

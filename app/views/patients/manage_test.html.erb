@@ -1,0 +1,23 @@
+<%= form_for(@patient_test, url: update_test_path(@patient)) do |f| %>
+	<%= f.text_field :name, placeholder: 'Enter Test Name' %>
+	<%= f.text_field :result, placeholder: 'Enter Test Result' %>
+	<%= f.submit %>
+<% end %>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<tr>
+			<th>Test Name</th>
+			<th>Test Result</th>
+			<th>&nbsp;</th>
+		</tr>
+		<% if @patient_tests.each do |patient_test| %>
+			<tr>
+				<td><%= patient_test.name %></td>
+				<td><%= patient_test.result %></td>
+				<td><%= link_to 'Remove Test', destroy_test_path(@patient, patient_test), method: :delete %></td>
+			</tr>
+		<% end.blank? %>
+			<tr><td>Patient didn't take any tests</td></tr>
+		<% end %>
+	</table>
+</div>
