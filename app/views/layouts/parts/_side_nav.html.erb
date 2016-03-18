@@ -1,12 +1,12 @@
 <div class="col-sm-3 col-md-2 sidebar">
-	<ul class="list-group">
-		<li class="list-group-item"><%= link_to 'Hospital Profile', hospital_profile_path(HospitalProfile.last) %></li>
-		<li class="list-group-item"><%= link_to 'Manage Roles', roles_path %></li>
+	<ul class="nav nav-sidebar">
+		<li><%= active_link_to 'Hospital Profile', hospital_profile_path(HospitalProfile.last) %></li>
+		<li><%= active_link_to 'Manage Roles', roles_path %></li>
 		<% if current_user.has_role?('hospital') %>
-			<li class="list-group-item"><%= link_to 'Manage Patients', patients_path %></li>
+			<li><%= active_link_to 'Manage Patients', patients_path %></li>
 		<% end %>
-		<% if current_user.has_role?('personal') %>
-			<li class="list-group-item"><%= link_to 'Manage Profile', profile_path(current_user) %></li>
+		<% if !current_user.has_role?('hospital') %>
+			<li><%= active_link_to 'Manage Profile', profile_path(current_user) %></li>
 		<% end %>
 	</ul>
 </div>

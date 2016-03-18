@@ -35,6 +35,8 @@ gem 'gmaps-autocomplete-rails'
 gem 'geocoder'
 #Jquery ui
 gem 'jquery-ui-rails'
+#For active link
+gem 'active_link_to'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -52,6 +54,8 @@ group :development, :test do
   gem 'byebug'
   # Tesing frameworks
   gem 'rspec-rails', '3.3.2'
+  #Factory girl
+  gem 'factory_girl_rails'
 end
 
 group :development do

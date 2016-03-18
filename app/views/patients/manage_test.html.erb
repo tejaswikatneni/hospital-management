@@ -1,8 +1,17 @@
-<%= form_for(@patient_test, url: update_test_path(@patient)) do |f| %>
-	<%= f.text_field :name, placeholder: 'Enter Test Name' %>
-	<%= f.text_field :result, placeholder: 'Enter Test Result' %>
-	<%= f.submit %>
-<% end %>
+<div class="panel-layout">
+	<div class="panel panel-default">
+		<div class="panel-heading">Manage Test</div>
+		<div class="panel-body">
+			<%= form_for(@patient_test, url: update_test_path(@patient)) do |f| %>
+				<%= f.text_field :name, placeholder: 'Enter Test Name', class: 'form-control' %>
+				<%= f.text_field :result, placeholder: 'Enter Test Result', class: 'form-control' %>
+				<div class="btn-section text-center">
+					<%= f.submit class: 'btn btn-success' %>					
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
 <div class="table-responsive">
 	<table class="table table-striped">
 		<tr>

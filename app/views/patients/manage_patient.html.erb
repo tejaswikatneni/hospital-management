@@ -1,7 +1,16 @@
-<%= form_for(@patient, url: update_patient_path(@patient)) do |f| %>
-	<%= f.text_field :weight, placeholder: 'Enter Weight' %>
-	<%= f.text_field :temperature, placeholder: 'Enter Temperature' %>
-	<%= f.submit 'Update Patient', class: 'btn btn-success' %>
-<% end %>
-<p><strong>Weight: </strong><%= @patient.weight.present? ? @patient.weight : 'Not Mentioned' %></p>
-<p><strong>Temperature: </strong><%= @patient.temperature.present? ? @patient.temperature : 'Not Mentioned' %></p>
+<div class="panel-layout">
+	<div class="panel panel-default">
+		<div class="panel-heading">Manage Patient</div>
+		<div class="panel-body">
+			<%= form_for(@patient, url: update_patient_path(@patient)) do |f| %>
+				<%= f.text_field :weight, placeholder: 'Enter Weight', class: 'form-control' %>
+				<%= f.text_field :temperature, placeholder: 'Enter Temperature', class: 'form-control' %>
+				<div class="actions text-center">
+					<%= f.submit 'Update Patient', class: 'btn btn-success' %>					
+				</div>
+			<% end %>
+			<p><strong>Weight: </strong><%= @patient.weight.present? ? @patient.weight : 'Not Mentioned' %></p>
+			<p><strong>Temperature: </strong><%= @patient.temperature.present? ? @patient.temperature : 'Not Mentioned' %></p>
+		</div>
+	</div>
+</div>

@@ -1,14 +1,15 @@
 <div class="col-md-12 no-gutter">
-	<div class="role-show">		
+	<div class="role-show">
 		<div class="clear"></div>
 		<div class="col-md-12 no-gutter">
-			<h2 class="header-title">Patients<span><%#= link_to 'Add/Change Abilities', change_role_abilities_path(@role), class: 'btn btn-primary pull-right' %></span></h2>
+			<h2 class="header-title">Patients</h2>
 			<div class="table-responsive">
 				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>Account Number</th>
 							<th>Patient Name</th>
+							<th>Location</th>
 							<th>Weight</th>
 							<th>Temperature</th>
 						</tr>
@@ -19,6 +20,7 @@
 								<tr>
 									<td><%= user.account_number %></td>
 									<td><%= user.first_name %></td>
+									<td><%= user.location.present? ? user.location : 'not mentioned' %></td>
 									<td><%= user.weight.present? ? user.weight : 'not mentioned' %></td>
 									<td><%= user.temperature.present? ? user.temperature : 'not mentioned' %></td>
 									<td><%= link_to 'Manage Patient', manage_patient_path(user) %></td>
@@ -31,10 +33,5 @@
 			</div>
 		</div>
 		<div class="clear"></div>
-		<div class="col-md-12 no-gutter extra-margin-top">
-			<%#= link_to 'Back', roles_path, class: 'btn btn-info' %>
-			<%#= link_to 'Edit', edit_role_path(@role), class: 'btn btn-info' %>
-			<%#= link_to 'Add/Change Abilities', change_role_abilities_path(@role), class: 'btn btn-primary pull-right' %>
-		</div>
 	</div>
 </div>

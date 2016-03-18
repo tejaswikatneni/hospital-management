@@ -1,75 +1,8 @@
 <header>
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"><%= %></a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<% if !user_signed_in? %>
-					<ul>
-						<li><%= link_to 'Signup', new_user_registration_path %></li>
-						<li class='mobile-login'>
-							<%= link_to '#', class: 'btn btn-xs btn-info', data: { toggle: 'modal', target: '#mobile-popover-content', title: 'Login', whatever: 'login'} do %>
-							<i class="fa fa-user fa-lg"></i> Login
-							<% end %>
-							<!-- Generated markup by the plugin -->
-							<div class="modal fade" id="mobile-popover-content" tabindex="-1" role="dialog" aria-labelledby="mobilePopoverLabel">
-								<div class="modal-dialog mobile-model-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true" class="close-symbol">&times;</span>
-											</button>
-											<h4 class="modal-title" id="exampleModalLabel">Login</h4>
-										</div>
-
-										<div class="modal-body">
-											<%= form_for(:user, :url => user_session_path(:user)) do |f| %>
-												<div class="form-group">
-													<%= f.email_field  :email, autofocus: true, class: 'form-control', :placeholder =>'User Email' %>
-												</div>
-												<div class="form-group">
-													<%= f.password_field :password, autocomplete: 'off', class: 'form-control', :placeholder =>'Password' %>
-												</div>
-												<div class="col-md-6 col-sm-6 col-xs-6 no-gutter-left">
-													<div class="form-group">
-														<div class="checkbox">
-															<label>
-																<%= f.check_box :remember_me %>
-																Remember me
-															</label>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-6 col-xs-6 no-gutter-right">
-													<%= submit_tag 'Login', class: 'btn btn-primary pull-right button text-uppercase' %>
-												</div>
-												<div class="clear"></div>
-											<% end %>
-										</div>
-										<div class="modal-footer">
-											<div class="col-md-4 col-sm-4 col-xs-6 no-gutter-left">
-												<%= link_to 'Create an account', new_user_registration_path, class: 'btn btn-sm button' %>
-											</div>
-											<button type="button" class="btn btn-default hidden-xs" data-dismiss="modal">Close</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				<% else %>
-				<li>
-					<%= link_to destroy_user_session_path, :method => :delete, class: 'btn btn-xs btn-info' do %>
-							<i class="fa fa-user fa-lg"></i> Logout
-					<% end %>
-				</li>
-				<% end %>
-			</div><!--/.navbar-collapse -->
-		</div>
-	</header>
+	<% if user_signed_in? %>
+		<%= link_to destroy_user_session_path, method: :delete, class: 'pull-right btn btn-danger logout' do %>
+			<i class="fa fa-sign-out fa-lg"></i>
+			Logout
+		<% end %>
+	<% end %>
+</header>

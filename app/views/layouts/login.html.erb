@@ -11,12 +11,7 @@
 </head>
 <body>	
 	<div class="container">
-		<% if user_signed_in? %>
-			<%= link_to destroy_user_session_path, method: :delete, class: 'pull-right btn btn-danger logout' do %>
-				<i class="fa fa-sign-out fa-lg"></i>
-				Logout
-			<% end %>
-		<% end %>
+		<%= render partial: 'layouts/parts/header' %>
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
 		<%= yield %>		

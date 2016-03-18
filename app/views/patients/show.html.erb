@@ -1,11 +1,11 @@
 <div class="table-responsive">
-	<%= link_to 'Edit Profile', edit_profile_path %>
 	<p><label>First Name</label>: <%= @patient.first_name %></p>
 	<p><label>Last Name</label>: <%= @patient.last_name %></p>
 	<p><label>Account Number</label>: <%= @patient.account_number %></p>
 	<p><label>Location</label>: <%= @patient.location.present? ? @patient.location : 'Not mentioned' %></p>
 	<p><label>Weight</label>: <%= @patient.weight.present? ? @patient.weight : 'Not mentioned' %></p>
 	<p><label>Temperature</label>: <%= @patient.temperature.present? ? @patient.temperature : 'Not mentioned' %></p>
+	<%= link_to 'Edit Profile', edit_profile_path, class: 'btn btn-success align-margin' %>
 	<table class="table table-striped">
 		<tr>
 			<th>Test Name</th>
